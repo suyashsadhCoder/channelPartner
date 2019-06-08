@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ChannelPartner.Views.Payments" BackgroundColor="{StaticResource appBG}">
+    <ContentPage.Content>
+        <ListView x:Name="paymentlistView"  ItemsSource="{Binding itemsList}" BackgroundColor="Transparent" SelectionMode="None" SeparatorVisibility="None"  HasUnevenRows="True">
+                 <ListView.ItemTemplate>
+                    <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="5" >
+                            <Label TextColor="Black" Text="{Binding FranchiseName}"></Label>
+                            <Frame HasShadow="true" BackgroundColor="White" HorizontalOptions="FillAndExpand" Padding="0" VerticalOptions="FillAndExpand">
+                                <StackLayout Padding="2">
+                                    <StackLayout   Orientation="Horizontal"  >
+                                        <Label HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontSize="Small" Text="Term Type: " FontAttributes="Bold" TextColor="{StaticResource PrimeryOrange}"/>
+                                                    <Span Text="{Binding TermType}" TextColor="Black" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontSize="Small" Text="Term Date: " FontAttributes="Bold" TextColor="{StaticResource PrimeryOrange}"/>
+                                                    <Span Text="{Binding strTermDate}" TextColor="Black" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout   Orientation="Horizontal"  >
+                                        <Label HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding strTermMonthYear}" TextColor="Black" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontSize="Small" Text="Paid Type: " FontAttributes="Bold" TextColor="{StaticResource PrimeryOrange}"/>
+                                                    <Span Text="{Binding PaidType}" TextColor="Black" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout   Orientation="Horizontal"  >
+                                        <Label HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontSize="Small" Text="Remark: " FontAttributes="Bold" TextColor="{StaticResource PrimeryOrange}"/>
+                                                    <Span Text="{Binding Remark}" TextColor="Black" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontSize="Small" Text="Sell Amount: " FontAttributes="Bold" TextColor="{StaticResource PrimeryOrange}"/>
+                                                    <Span Text="{Binding strsellAmount}" TextColor="Black" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout> 
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                   
+                </ListView.Footer>
+            </ListView>
+       
+           
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChannelPartner.Views.HomeView" Title="Home">
+    <ContentPage.Content>
+        <Grid >
+            <Image Source="ScreenOne" Aspect="AspectFill"/>
+            <StackLayout Padding="10">
+                <Image Source="logo"  HorizontalOptions="FillAndExpand" ></Image>
+                <Label Text="{Binding strGreeting}" HorizontalOptions="FillAndExpand" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Frame Grid.Column="0" Padding="0" Grid.Row="0" Grid.ColumnSpan="2">
+                        <StackLayout Padding="0" Spacing="0">
+                            <StackLayout Padding="5" BackgroundColor="#77A401" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Label    Text="Total Franchise" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"></Label>
+                            </StackLayout>
+                            <StackLayout Padding="5" BackgroundColor="#597800" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Label    Text="{Binding DashboardModelItem.cpDash_FranchiseCount}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"></Label>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </Frame>
+                    <Frame Grid.Column="0" Padding="0" Grid.Row="1">
+                        <StackLayout Padding="0" Spacing="0">
+                            <StackLayout Padding="0,5" BackgroundColor="#00C0EF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Label    Text="Total Stock" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"></Label>
+                            </StackLayout>
+                            <StackLayout Padding="5" BackgroundColor="#008CAF" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Label    Text="{Binding DashboardModelItem.cpDash_TotalStockRemaining}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"></Label>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </Frame>
+                    <Frame Grid.Column="1" Padding="0" Grid.Row="1" >
+                        <StackLayout Padding="0" Spacing="0">
+                            <StackLayout Padding="0,5" BackgroundColor="#00A65A" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Label    Text="Total Due Amount" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"></Label>
+                            </StackLayout>
+                            <StackLayout Padding="0,5" BackgroundColor="#007943" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Label    Text="{Binding DashboardModelItem.cpDash_TotalDueAmount}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <!--<Frame Grid.Column="0" Padding="0" Grid.Row="2">
+                    <StackLayout Padding="0" Spacing="0">
+                        <StackLayout Padding="0,5" BackgroundColor="#F39C11" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label   Text="Total Pending Commissions (Sattled)" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"></Label>
+                        </StackLayout>
+                        <StackLayout Padding="0,5" BackgroundColor="#B1710D" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label    Text="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"></Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                </Frame>
+                <Frame Grid.Column="1" Padding="0" Grid.Row="2" >
+                    <StackLayout Padding="0" Spacing="0">
+                        <StackLayout Padding="0,5" BackgroundColor="#DE4B39" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label    Text="Total Pending Commissions (Unsattled)" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="White"></Label>
+                        </StackLayout>
+                        <StackLayout Padding="0,5" BackgroundColor="#A1372A" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label    Text="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="White"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="0" Padding="0" Grid.Row="3">
+                    <StackLayout Padding="0" Spacing="0">
+                        <StackLayout Padding="0,5" BackgroundColor="#3584FA" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label    Text="Delayed Franchise" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="White"></Label>
+                        </StackLayout>
+                        <StackLayout Padding="0,5" BackgroundColor="#2860B7" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label    Text="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="White"></Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                </Frame>
+                <Frame Grid.Column="1" Padding="0" Grid.Row="3" >
+                    <StackLayout Padding="0" Spacing="0">
+                        <StackLayout Padding="0,5" BackgroundColor="#AF5BB9" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label    Text="Franchise to Pay" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="White"></Label>
+                        </StackLayout>
+                        <StackLayout Padding="0,5" BackgroundColor="#804389" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label    Text="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" TextColor="White"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>-->
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

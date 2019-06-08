@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="ChannelPartner.Views.AllotedFranchis" 
+    BackgroundColor="{StaticResource appBG}"
+    xmlns:controls ="clr-namespace:ChannelPartner.Controls">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+             <controls:ImageEntry ImageWidth="10" ImageHeight="10" TextColor="Black" Image="searchicon" 
+                        Placeholder="Search by ID or Name" 
+                        HorizontalOptions="FillAndExpand" TextChanged="ImageEntry_TextChanged"  BackgroundColor="White" PlaceholderColor="Gray"/>
+            <ListView x:Name="FranchiseListView" SeparatorVisibility="None"  IsPullToRefreshEnabled="true"  ItemsSource="{Binding itemsList}" BackgroundColor="Transparent" HasUnevenRows="True" SelectionMode="None"  >
+                 <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="Transparent" Padding="0,0,0,5"   HorizontalOptions="FillAndExpand" >
+                                <StackLayout BackgroundColor="White"  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <StackLayout WidthRequest="2" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource listBrown}"></StackLayout>
+                                    <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <StackLayout Padding="0,5,5,5"  Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                            <Label FontSize="Large" TextColor="Black" HorizontalOptions="Start" HorizontalTextAlignment="Start" Text="{Binding FranchiseName}"></Label>
+                                            <Label  TextColor="Black" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand" Text="{Binding FranchiseCode}"></Label>
+                                        </StackLayout>
+                                        <!--<Label  TextColor="Black" HorizontalTextAlignment="End" HorizontalOptions="StartAndExpand" Text="{Binding StrDueDate,StringFormat='Due Date : {0}'}"></Label>-->
+                                        <StackLayout Padding="0,5,5,5"  Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                            <Label HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span FontSize="Small" Text="Due Date: " FontAttributes="Bold" TextColor="Black"/>
+                                                        <Span Text="{Binding StrDueDate}" TextColor="Red" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span FontSize="Small" Text="Due Amount: " FontAttributes="Bold" TextColor="Black"/>
+                                                        <Span Text="{Binding StrDueAmount}" TextColor="Red" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                        <StackLayout HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Silver"></StackLayout>
+                                        <StackLayout Padding="0,5,5,5"  Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                            <Label HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span FontSize="Small" Text="Pending Commission: " FontAttributes="Bold" TextColor="Black"/>
+                                                        <Span Text="{Binding StrPendingCommissionAmount}" TextColor="Red" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Frame HorizontalOptions="EndAndExpand" Padding="5,2" WidthRequest="60" CornerRadius="20" BackgroundColor="{Binding textColorAmount}">
+                                                <Label Text="{Binding FranchisePayStatus}" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"></Label>
+                                            </Frame>
+
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                   
+                </ListView.Footer>
+            </ListView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

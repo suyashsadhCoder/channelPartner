@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="ChannelPartner.Views.FranchiseeDetailsView" 
+    xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
+    BackgroundColor="{StaticResource appBG}" Title="Franchise Details">
+    <ContentPage.Content>
+        <StackLayout Padding="10,0">
+            <StackLayout x:Name="segContainer"
+                 Padding="12"
+                 Spacing="12">
+                <controls:SegmentedControl x:Name="SegControl" TintColor="{StaticResource PrimeryOrange}" ValueChanged="Handle_ValueChanged">
+                    <controls:SegmentedControl.Children>
+                        <controls:SegmentedControlOption Text="Details" />
+                        <controls:SegmentedControlOption Text="Leadger" />
+                    </controls:SegmentedControl.Children>
+                </controls:SegmentedControl>
+            </StackLayout>
+
+            <RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <ListView x:Name="txlistView" IsVisible="{Binding isListView}"   ItemsSource="{Binding Items}" BackgroundColor="Transparent" SelectionMode="None" RelativeLayout.WidthConstraint="{ConstraintExpression Property=Width,Type=RelativeToParent,Factor=1}"  
+                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=.85}" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10" BackgroundColor="White" HorizontalOptions="FillAndExpand">
+                                    <StackLayout   Orientation="Horizontal"  >
+                                        <Label HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding monthYear}" FontSize="Medium" FontAttributes="Bold" TextColor="Black" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontSize="Small" Text="Due Date: " FontAttributes="Bold" TextColor="{StaticResource PrimeryOrange}"/>
+                                                    <Span Text="{Binding DueDate}" TextColor="Black" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout   Orientation="Horizontal"  >
+                                        <Label HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontSize="Small" Text="Slab: " FontAttributes="Bold" TextColor="{StaticResource PrimeryOrange}"/>
+                                                    <Span Text="{Binding slab}" TextColor="Black" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontSize="Small" Text="Sell Amount: " FontAttributes="Bold" TextColor="{StaticResource PrimeryOrange}"/>
+                                                    <Span Text="{Binding strsellAmount}" TextColor="Black" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <Label HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span FontSize="Small" Text="Franchise Paid Status: " FontAttributes="Bold" TextColor="{StaticResource PrimeryOrange}"/>
+                                                <Span Text="{Binding franchisePaidStatus}" TextColor="Black" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span FontSize="Small" Text="Channel Partner Paid Status: " FontAttributes="Bold" TextColor="{StaticResource PrimeryOrange}"/>
+                                                <Span Text="{Binding CpPaidStatus}" TextColor="Black" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+                <StackLayout IsVisible="{Binding isLeadgerView}" BackgroundColor="Transparent" RelativeLayout.WidthConstraint="{ConstraintExpression Property=Width,Type=RelativeToParent,Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression Property=Height, Type=RelativeToParent, Factor=1}"  VerticalOptions="Start" >
+                    <StackLayout  BackgroundColor="White" Orientation="Horizontal" Padding="10,20,10,10">
+                        <Image Source="{Binding DetailModel.FranchiseName}" ></Image>
+                        <StackLayout HorizontalOptions="EndAndExpand">
+                            <Label Text="{Binding DetailModel.FranchiseName}" TextColor="{StaticResource PrimeryOrange}" ></Label>
+                            <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="Silver"></BoxView>
+                            <Label Text="{Binding DetailModel.FranchiseOwnerName}" TextColor="{StaticResource PrimeryOrange}" ></Label>
+                            <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="Silver"></BoxView>
+                            <Label Text="{Binding DetailModel.FranchisePrimaryMobileNo}" ></Label>
+                            <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="Silver"></BoxView>
+                            <Label Text="{Binding DetailModel.FranchiseEmailId}" ></Label>
+                            <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="Silver"></BoxView>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Padding="10">
+                        <StackLayout Orientation="Horizontal">
+                            <Label HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span FontSize="Small" Text="State: " FontAttributes="Bold" TextColor="Black"/>
+                                        <Span FontSize="Small" Text="{Binding DetailModel.StateName}" TextColor="Gray" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span FontSize="Small" Text="City: " FontAttributes="Bold" TextColor="Black"/>
+                                        <Span FontSize="Small" Text="{Binding DetailModel.CityName}" TextColor="Gray" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                        <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="Silver"></BoxView>
+                        <Label FontSize="Small" Text="{Binding DetailModel.FranchiseAddress}"  ></Label>
+                    </StackLayout>
+                    <Label TextColor="Black" Text="Ledger Overview" FontSize="Large"></Label>
+                    <Grid HorizontalOptions="FillAndExpand" BackgroundColor="White" Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Grid.Row="0" TextColor="Black"  Grid.ColumnSpan="2"  Text="Total Stock:"  HorizontalOptions="FillAndExpand"  />
+                        <Label Grid.Column="2" Grid.Row="0" TextColor="{StaticResource PrimeryOrange}"   HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="{Binding DetailModel.strTotalRemaningStock}"  HorizontalOptions="FillAndExpand" />
+                        <BoxView Grid.Row="1" Grid.ColumnSpan="3" HeightRequest="1"  HorizontalOptions="FillAndExpand" BackgroundColor="Silver"></BoxView>
+
+                        <Label Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  Grid.ColumnSpan="2" Grid.Row="2" TextColor="Black" Text="Total Due Amount:" HorizontalOptions="FillAndExpand"   />
+                        <Label Grid.Column="2" Grid.Row="2" TextColor="{StaticResource PrimeryOrange}" HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="{Binding DetailModel.strTotalDueAmount}"  HorizontalOptions="FillAndExpand" />
+                        <BoxView HeightRequest="1" Grid.Row="3" Grid.ColumnSpan="3"  HorizontalOptions="FillAndExpand" BackgroundColor="Silver"></BoxView>
+
+                        <Label Grid.Column="0"  Grid.ColumnSpan="2" TextColor="Black" Grid.Row="4" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  Text="Total Pending Commission:" HorizontalOptions="FillAndExpand"   />
+                        <Label Grid.Column="2" TextColor="{StaticResource PrimeryOrange}" Grid.Row="4" Text="{Binding DetailModel.strTotalPendingCommission}" HorizontalTextAlignment="End" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand" />
+                        <BoxView HeightRequest="1" Grid.Row="5" Grid.ColumnSpan="3"  HorizontalOptions="FillAndExpand" BackgroundColor="Silver"></BoxView>
+
+                        <Label Grid.Column="0"  Grid.ColumnSpan="2" TextColor="Black" Grid.Row="6" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  Text="Due Date:" HorizontalOptions="FillAndExpand"   />
+                        <Label Grid.Column="2" TextColor="{StaticResource PrimeryOrange}" Grid.Row="6" Text="{Binding DetailModel.strDueDate}" HorizontalTextAlignment="End" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand" />
+                        <BoxView HeightRequest="1" Grid.Row="7" Grid.ColumnSpan="3"  HorizontalOptions="FillAndExpand" BackgroundColor="Silver"></BoxView>
+
+
+                        <Label Grid.Column="0"  Grid.ColumnSpan="2" TextColor="Black" Grid.Row="8" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  Text="Commission % :" HorizontalOptions="FillAndExpand"   />
+                        <Label Grid.Column="2" TextColor="{StaticResource PrimeryOrange}" Grid.Row="8" Text="{Binding StrCommisionPercent,StringFormat=' {0}%'}" HorizontalTextAlignment="End" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand" />
+                        <BoxView HeightRequest="1" Grid.Row="9" Grid.ColumnSpan="3"  HorizontalOptions="FillAndExpand" BackgroundColor="Silver"></BoxView>
+                    </Grid>
+                </StackLayout>
+             
+            </RelativeLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

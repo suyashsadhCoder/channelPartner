@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ChannelPartner.Views.MenuPage"  Padding="0,40,0,0" Icon="menu"
+    BackgroundColor="Black" Title="Profile">
+    <StackLayout BackgroundColor="Black" VerticalOptions="FillAndExpand">
+        <StackLayout Padding="20">
+            <Label x:Name="nameTitle" TextColor="White"></Label>
+            </StackLayout>
+      
+        <ListView x:Name="ListViewMenu" BackgroundColor="{StaticResource PrimeryOrange}" SeparatorColor="Transparent" HasUnevenRows="True" RowHeight="50">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                       <StackLayout Orientation="Horizontal" Spacing="10" Padding="10">
+                            <Image Source="{Binding ImageName}"></Image>
+                            <Label Text="{Binding Title}" TextColor="White" VerticalOptions="Center" FontSize="20" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <StackLayout HeightRequest="0"></StackLayout>
+            </ListView.Footer>
+        </ListView>
+        <StackLayout Padding="15"  Orientation="Horizontal" BackgroundColor="{StaticResource secondryBrown}">
+            <Image Source="profile"></Image>
+                            <Button Text="Logout" TextColor="White" Clicked="Button_Clicked" BackgroundColor="Transparent" VerticalOptions="Center" FontSize="20" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="ChannelPartner.Views.ProfileView" 
+             Title="Profile"
+             xmlns:controls ="clr-namespace:ChannelPartner.Controls">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            
+            <Label Text="{Binding ErrorMsg}" TextColor="Red" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"></Label>
+            <controls:ImageEntry TextColor="Black" IsEnabled="{Binding IsEditMode}" Image="user" 
+                        Text="{Binding ProfileModel.ChannelPartnerName, Mode=TwoWay}"
+                        HorizontalOptions="FillAndExpand" PlaceholderColor="Gray" />
+            <controls:ImageEntry IsEnabled="False" TextColor="Black" Image="mail" 
+                        Text="{Binding ProfileModel.email, Mode=TwoWay}"
+                        HorizontalOptions="FillAndExpand" PlaceholderColor="Gray" />
+            <controls:ImageEntry TextColor="Black" Image="call" Keyboard="Telephone" MaxLength="10" IsEnabled="{Binding IsEditMode}"
+                        Text="{Binding ProfileModel.MobileNumber,  Mode=TwoWay}"
+                        HorizontalOptions="FillAndExpand" PlaceholderColor="Gray" />
+            <Button  BackgroundColor="{StaticResource PrimeryOrange}" HorizontalOptions="Center" Command="{Binding Updatechange}" Text="{Binding ButtonTitle}" TextColor="White"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

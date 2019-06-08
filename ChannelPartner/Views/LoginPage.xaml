@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ChannelPartner.Effects" 
+             xmlns:controls ="clr-namespace:ChannelPartner.Controls"
+             x:Class="ChannelPartner.Views.LoginPage">
+    <ContentPage.Content>
+         <Grid >
+            <Image Source="Screen" Aspect="AspectFill"/>
+            <ScrollView>
+                <StackLayout Orientation="Vertical" Padding="16,20,16,40" Spacing="10">
+                    <Image Source="logo"  HorizontalOptions="FillAndExpand" ></Image>
+                    <Label Text="{Binding ErrorMsg}" TextColor="Red" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" IsVisible="{Binding HasErrors}"></Label>
+                    <controls:ImageEntry TextColor="Black" Text="{Binding AppUser_Name, Mode=TwoWay}" Image="user" 
+                        Placeholder="Username" 
+                        HorizontalOptions="FillAndExpand" PlaceholderColor="Gray"/>
+                     <controls:ImageEntry TextColor="Black" Image="lock" 
+                        Placeholder="Password"  Text="{Binding AppUser_Password, Mode=TwoWay}"
+                        HorizontalOptions="FillAndExpand" PlaceholderColor="Gray" IsPassword="true"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <controls:Checkbox Checked="{Binding TermsCondotionAccpeted}" Command="{Binding OnCheckedChanged}"></controls:Checkbox>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="I agree to Use " TextColor="Gray"/>
+                                    <Span Text="Terms And Conditions" TextColor="Black" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ClickCommand}"  NumberOfTapsRequired="1" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                    <Button x:Name="btnForgetPassword" BackgroundColor="Transparent" HorizontalOptions="End"  Text="Forget Password" Clicked="BtnForgetPassword_Clicked" TextColor="Black"></Button>
+                    <Button x:Name="btnLogin" BackgroundColor="{StaticResource PrimeryOrange}" HorizontalOptions="Center" Command="{Binding LoginCommand}" Text="Login" TextColor="White"></Button>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
